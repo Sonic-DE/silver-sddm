@@ -1,0 +1,17 @@
+[SddmGreeterTheme]
+Name=Sonic Silver Light
+Description=Sonic Silver Light SDDM theme for Plasma 6
+Author=Joseph Crowell (Original work by EliverLara and Ziednaga)
+Copyright=(c) 2016 David Edmundson; (c) 2024, Eliver Lara; (c) 2025, Ziednaga; (c) 2026, Joseph Crowell
+License=GPL 2+
+Type=sddm-theme
+Version=0.1
+Website=https://github.com/Sonic-DE/silver-sddm
+Screenshot=preview.png
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations
+Email=joseph.w.crowell@gmail.com
+Theme-Id=sonic-silver-light
+Theme-API=2.0
+QtVersion=6

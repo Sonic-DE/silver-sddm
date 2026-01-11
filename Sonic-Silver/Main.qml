@@ -219,6 +219,8 @@ Item {
                         onClicked: sddm.suspend()
                         enabled: sddm.canSuspend
                         visible: !inputPanel.keyboardActive
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: 15
                     },
                     ActionButton {
                         iconSource: Qt.resolvedUrl("assets/restart.svgz")
@@ -226,6 +228,8 @@ Item {
                         onClicked: sddm.reboot()
                         enabled: sddm.canReboot
                         visible: !inputPanel.keyboardActive
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: 15
                     },
                     ActionButton {
                         iconSource: Qt.resolvedUrl("assets/shutdown.svgz")
@@ -233,13 +237,17 @@ Item {
                         onClicked: sddm.powerOff()
                         enabled: sddm.canPowerOff
                         visible: !inputPanel.keyboardActive
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: 15
                     },
                     ActionButton {
                         iconSource: Qt.resolvedUrl("assets/change_user.svgz")
-                        text: i18nd("plasma_lookandfeel_org.kde.lookandfeel","Different User")
+                        text: i18nd("plasma_lookandfeel_org.kde.lookandfeel","Switch User")
                         onClicked: mainStack.push(userPromptComponent)
                         enabled: true
                         visible: !userListComponent.showUsernamePrompt && !inputPanel.keyboardActive
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: 15
                     }]
 
                     onLoginRequest: {
@@ -332,6 +340,8 @@ Item {
                         onClicked: sddm.suspend()
                         enabled: sddm.canSuspend
                         visible: !inputPanel.keyboardActive
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: 15
                     },
                     ActionButton {
                         iconSource: Qt.resolvedUrl("assets/restart.svgz")
@@ -339,6 +349,8 @@ Item {
                         onClicked: sddm.reboot()
                         enabled: sddm.canReboot
                         visible: !inputPanel.keyboardActive
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: 15
                     },
                     ActionButton {
                         iconSource: Qt.resolvedUrl("assets/shutdown.svgz")
@@ -346,12 +358,16 @@ Item {
                         onClicked: sddm.powerOff()
                         enabled: sddm.canPowerOff
                         visible: !inputPanel.keyboardActive
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: 15
                     },
                     ActionButton {
                         iconSource: "go-previous"
                         text: i18nd("plasma_lookandfeel_org.kde.lookandfeel","List Users")
                         onClicked: mainStack.pop()
                         visible: !inputPanel.keyboardActive
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: 15
                     }
                 ]
             }

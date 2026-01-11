@@ -1,66 +1,63 @@
-# AndromiX-SDDM-Theme (KDE Plasma 6)
+# Sonic Silver SDDM Theme (KDE Plasma 6)
 
-  ![Dark Nord theme](AndromiX-SDDM-plasma-6/preview.png)
+  ![Sonic Silver](Sonic-Silver/preview.png)
 
-### ![Available on KDE Store!](https://www.pling.com/p/2273421/) 
 ---------
-AndromiX-SDDM-Theme is an SDDM theme fork based on the original ![Andromeda-KDE Plasma 6 project by EliverLara](https://github.com/EliverLara/Andromeda-KDE/tree/master), enhanced to bring a fresh, modern look to your login experience. This fork focuses on revamping the visual presentation of the SDDM login screen by offering:
+Sonic Silver is an SDDM theme fork based on the ![AndromiX-SDDM-Theme project by Ziednaga](https://github.com/Ziednaga/AndromiX-SDDM-Theme), with fixes.
 
-## Revamped Digital Clock:
-    
-    The traditional digital clock has been replaced with a modern, 
+This SDDM login screen by offers:
+
+## Revamped Digital Clock
+
+    The traditional digital clock has been replaced with a modern,
     stylish variant, strategically positioned at the center-right of the screen for enhanced visibility and design.
 
-## Enhanced Blur Effect:
-    
-    The background blur effect has been modified with a Nord-inspired tint, 
+## Enhanced Blur Effect
+
+    The background blur effect has been modified with a Nord-inspired tint,
     creating a cool and elegant atmosphere that complements the overall aesthetics.
 
-## Contemporary Aesthetic:
-    
-    With a clean and minimalist interface, AndromiX-SDDM-Theme blends functionality with attractive design, 
+## Contemporary Aesthetic
+
+    With a clean and minimalist interface, Sonic Silver blends functionality with attractive design,
     making it ideal for users seeking a login experience that stands out for its modernity and refinement.
 
-## Customizable Fork: 
-    
-    Built on Andromeda-KDE and ready to adapt to your personal preferences 
+## Customizable Fork
+
+    Built on Andromeda-KDE and ready to adapt to your personal preferences
     modifying the main.qml or login.qml file.
 
 This project is perfect for KDE users who want to personalize and modernize the appearance of their SDDM session manager without sacrificing the simplicity and usability of the original Andromeda-KDE SDDM Theme.
 
-------------
- 
-### -Light variant still in beta-
+---------
 
-  ![Light Nord theme](AndromiX-SDDM-Light-plasma-6/preview.png)
- 
+### Light variant
 
-Contributions, suggestions, and feedback are welcome. Thank you for using AndromiX-KDE!
+  ![Sonic Silver Light](Sonic-Silver-Light/preview.png)
 
-### Plans to create AndromiX SDDM Theme Nobara Linux edition in the future.
-### Plans to change the action icons to someones made by me in the nearby future.
+Contributions, suggestions, and feedback are welcome. Thank you for using SonicDE!
 
-------------
+---------
 
-# How to set up:
+## How to set up
 
-     git clone https://github.com/Ziednaga/AndromiX-SDDM-Theme
-     sudo cp -r ~/AndromiX-SDDM-Theme/AndromiX-SDDM-Light-plasma-6 ~/AndromiX-SDDM-Theme/AndromiX-SDDM-plasma-6 /usr/share/sddm/themes/
+    ```bash
+    git clone https://github.com/Sonic-DE/silver-sddm
+    sudo cp -r ~/silver-sddm/Sonic-Silver /usr/share/sddm/themes/
+    sudo cp -r ~/silver-sddm/Sonic-Silver-Light /usr/share/sddm/themes/
+    ```
 
-## -If you want upgrade Andromix, then: 
+### If you want upgrade Sonic Silver, delete the old versions
 
-     git clone https://github.com/Ziednaga/AndromiX-SDDM-Theme
-     sudo rm -r /usr/share/sddm/themes/AndromiX-SDDM-Light-plasma-6
-     sudo rm -r /usr/share/sddm/themes/AndromiX-SDDM-plasma-6
+    ```bash
+    git clone https://github.com/Sonic-DE/silver-sddm
+    sudo rm -r /usr/share/sddm/themes/Sonic-Silver
+    sudo rm -r /usr/share/sddm/themes/Sonic-Silver-Light
+    ```
 
-## -Deletes old versions and:
+### Then install new versions of the theme
 
-    sudo cp -r ~/AndromiX-SDDM-Theme/AndromiX-SDDM-Light-plasma-6 /usr/share/sddm/themes/
-    sudo cp -r ~/AndromiX-SDDM-Theme/AndromiX-SDDM-plasma-6 /usr/share/sddm/themes/
-
-## -Install new versions of the theme! 
-
-# Enjoy! :D
-
-
-
+    ```bash
+    sudo cp -r ~/silver-sddm/Sonic-Silver /usr/share/sddm/themes/
+    sudo cp -r ~/silver-sddm/Sonic-Silver-Light /usr/share/sddm/themes/
+    ```
