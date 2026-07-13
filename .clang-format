@@ -1,0 +1,13 @@
+---
+Language: Cpp
+BasedOnStyle: WebKit
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterFunction: true
+AllowShortFunctionsOnASingleLine: None
+SpaceBeforeCpp11BracedList: false
+Cpp11BracedListStyle: FunctionCall
+...
