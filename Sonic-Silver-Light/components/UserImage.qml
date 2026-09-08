@@ -1,6 +1,4 @@
 import QtQuick 2.8
-import org.kde.plasma.plasma5support 2.0 as PlasmaCore
-import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.kirigami 2.20 as Kirigami
 
 Item {
@@ -28,7 +26,6 @@ Item {
             visible: (face.status == Image.Error || face.status == Image.Null)
             anchors.fill: parent
             anchors.margins: Kirigami.Units.gridUnit * 0.5 // because mockup says so...
-           // colorGroup: PlasmaCore.ColorScope.colorGroup
         }
     
 

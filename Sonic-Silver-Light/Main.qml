@@ -21,15 +21,16 @@ import QtQuick 2.15
 
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15
-import org.kde.plasma.plasma5support 2.0 as PlasmaCore
+import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 3.0 as PlasmaComponents
 
-import Qt5Compat.GraphicalEffects
+import QtQuick.Effects
 import org.kde.kirigami 2.20 as Kirigami
 import QtQuick 2.15
 import QtQuick.Window 2.15
 
-import org.kde.breeze.components
+import org.kde.breeze.components as WorkspaceComponents
+import org.kde.plasma.private.keyboardindicator as KeyboardIndicator
 
 import "components"
 import "components/animation"
@@ -50,14 +51,14 @@ Item {
 
     property string notificationMessage
     property string clock_color: "#fff"
+    property bool capsLockLocked: capsLockState.locked
 
     LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
-    PlasmaCore.DataSource {
-        id: keystateSource
-        engine: "keystate"
-        connectedSources: "Caps Lock"
+    KeyboardIndicator.KeyState {
+        id: capsLockState
+        key: Qt.Key_CapsLock
     }
 
     Image {
@@ -204,7 +205,7 @@ Item {
 
                 notificationMessage: {
                     const parts = [];
-                    if (keystateSource.data["Caps Lock"]["Locked"]) {
+                    if (root.capsLockLocked) {
                         parts.push(i18nd("plasma_lookandfeel_org.kde.lookandfeel", "Caps Lock is on"));
                     }
                     if (root.notificationMessage) {
@@ -292,12 +293,12 @@ Item {
 
             Behavior on opacity {
                 OpacityAnimator {
-                    duration: units.longDuration
+                    duration: Kirigami.Units.longDuration
                 }
             }
         }
 
-        VirtualKeyboardLoader {
+        WorkspaceComponents.VirtualKeyboardLoader {
             id: inputPanel
 
             z: 1
@@ -400,14 +401,16 @@ Item {
                 z: -2
             }
 
-            GaussianBlur {
+            MultiEffect {
                 id: blur
                 width: blurArea.width
                 height: blurArea.height
                 source: blurArea
-                radius: 50 //reduced from 70 to 50% by default.
-                samples: 50 * 2 + 1
-                cached: true
+                blurEnabled: true
+                blur: 1
+                blurMax: 50
+                blurMultiplier: 0
+                autoPaddingEnabled: false
                 visible: true
                 z: -2
             }

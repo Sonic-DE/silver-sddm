@@ -19,25 +19,24 @@
  
 import QtQuick 2.2
 
-import org.kde.plasma.plasma5support 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.plasma.private.battery as BatteryControl
 import org.kde.plasma.workspace.components 2.0 as PW
+import org.kde.plasma.components as PlasmaComponents
+import org.kde.kirigami 2.20 as Kirigami
 
 Row {
-    spacing: units.smallSpacing
-    visible: pmSource.data["Battery"]["Has Cumulative"]
+    spacing: Kirigami.Units.smallSpacing
+    visible: batteryControl.hasCumulative
 
-    PlasmaCore.DataSource {
-        id: pmSource
-        engine: "powermanagement"
-        connectedSources: ["Battery", "AC Adapter"]
+    BatteryControl.BatteryControlModel {
+        id: batteryControl
     }
 
     PW.BatteryIcon {
         id: battery
-        hasBattery: pmSource.data["Battery"]["Has Battery"] || false
-        percent: pmSource.data["Battery"]["Percent"] || 0
-        pluggedIn: pmSource.data["AC Adapter"] ? pmSource.data["AC Adapter"]["Plugged in"] : false
+        hasBattery: batteryControl.hasBatteries
+        percent: batteryControl.percent
+        pluggedIn: batteryControl.pluggedIn
 
         height: batteryLabel.height
         width: height

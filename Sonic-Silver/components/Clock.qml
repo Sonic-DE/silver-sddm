@@ -20,35 +20,35 @@
 import QtQuick 2.8
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.5
-import org.kde.plasma.plasma5support 2.0 as PlasmaCore
+import org.kde.plasma.clock as PlasmaClock
+import org.kde.kirigami 2.20 as Kirigami
 
 ColumnLayout {
     readonly property bool softwareRendering: GraphicsInfo.api === GraphicsInfo.Software
+    property date dateTime: timeSource.dateTime
 
     Label {
-        text:  Qt.formatTime(timeSource.data["Local"]["DateTime"], Qt.locale(), Locale.ShortFormat)
+        text:  Qt.formatTime(dateTime, Qt.locale(), Locale.ShortFormat)
         color: root.clock_color
         style: softwareRendering ? Text.Outline : Text.Normal
-        styleColor: softwareRendering ? ColorScope.backgroundColor : "transparent" //no outline, doesn't matter
+        styleColor: softwareRendering ? Kirigami.Theme.backgroundColor : "transparent"
         font.pointSize: 34
         Layout.alignment: Qt.AlignHCenter
         font.family: config.font
 
     }
     Label {
-        text: Qt.formatDate(timeSource.data["Local"]["DateTime"], Qt.locale(), Locale.LongFormat)
+        text: Qt.formatDate(dateTime, Qt.locale(), Locale.LongFormat)
         color: root.clock_color
         style: softwareRendering ? Text.Outline : Text.Normal
-        styleColor: softwareRendering ? ColorScope.backgroundColor : "transparent" //no outline, doesn't matter
+        styleColor: softwareRendering ? Kirigami.Theme.backgroundColor : "transparent"
         font.pointSize: 17
         Layout.alignment: Qt.AlignHCenter
         font.family: config.font
 
     }
-    PlasmaCore.DataSource {
+    PlasmaClock.Clock {
         id: timeSource
-        engine: "time"
-        connectedSources: ["Local"]
-        interval: 1000
+        trackSeconds: Qt.locale().timeFormat(Locale.ShortFormat).includes("s")
     }
 }

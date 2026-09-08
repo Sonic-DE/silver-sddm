@@ -5,7 +5,7 @@ import QtQuick.Layouts 1.2
 import QtQuick.Controls 2.4
 //import QtQuick.Controls.Styles 1.4
 
-import org.kde.plasma.plasma5support 2.0 as PlasmaCore
+import org.kde.plasma.clock as PlasmaClock
 import org.kde.plasma.components 3.0 as PlasmaComponents
 
 import org.kde.kirigami 2.20 as Kirigami
@@ -90,22 +90,15 @@ Item {
     }
 
     // Gets the system time to determinate the correct greeting
-    property int hours
+    property int hours: timeSource.dateTime.getHours()
 
-    PlasmaCore.DataSource {
+    PlasmaClock.Clock {
         id: timeSource
-        engine: "time"
-        connectedSources: ["Local"]
-        interval: 1000
-        onDataChanged: {
-            var date = new Date(data["Local"]["DateTime"]);
-            hours = date.getHours();
-            // minutes = date.getMinutes();
-            // seconds = date.getSeconds();
-        }
-        Component.onCompleted: {
-            root.focusFirstVisibleFormControl();
-        }
+        trackSeconds: false
+    }
+
+    Component.onCompleted: {
+        root.focusFirstVisibleFormControl();
     }
 
     //goal is to show the prompts, in ~16 grid units high, then the action buttons
